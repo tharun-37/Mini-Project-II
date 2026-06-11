@@ -1,0 +1,18 @@
+# Android build outputs
+HelmetAI/app/build/
+HelmetAI/.gradle/
+HelmetAI/build/
+*.apk
+*.aab
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Model training runs (optional - comment out if you want to keep)
+# model trainings/runs/
+
+# OS files
+.DS_Store
+Thumbs.db
