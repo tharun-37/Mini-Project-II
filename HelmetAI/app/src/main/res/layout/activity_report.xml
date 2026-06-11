@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    tools:context=".ReportActivity">
+
+    <!-- Title Header -->
+    <TextView
+        android:id="@+id/tvReportTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="EVIDENCE REVIEW"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:fontFamily="sans-serif-black"
+        android:textAlignment="center"
+        android:letterSpacing="0.05"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Summary Details Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardImages"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="#1E1E1E"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvReportTitle"
+        app:layout_constraintBottom_toTopOf="@id/cardDetails">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Dynamic Side-by-Side Full View Images -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                android:layout_marginBottom="16dp">
+
+                <!-- Left Column: Violation Frame -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginEnd="6dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="VIOLATION FRAME"
+                        android:textColor="#AAAAAA"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textAlignment="center"
+                        android:layout_marginBottom="4dp"/>
+                    <ImageView
+                        android:id="@+id/ivEvidenceViolation"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="#2C2C2C"/>
+                </LinearLayout>
+
+                <!-- Right Column: Plate Frame -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="6dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="PLATE FULL FRAME"
+                        android:textColor="#AAAAAA"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textAlignment="center"
+                        android:layout_marginBottom="4dp"/>
+                    <ImageView
+                        android:id="@+id/ivEvidencePlate"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:background="#2C2C2C"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Bottom: Cropped Plate crop -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CROPPED LICENSE PLATE"
+                android:textColor="#AAAAAA"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.05"
+                android:layout_marginBottom="6dp"/>
+
+            <ImageView
+                android:id="@+id/ivPlateCrop"
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:scaleType="fitCenter"
+                android:background="#2C2C2C"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Details Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="#1E1E1E"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutButtons">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvPlateNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Plate Number: --"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tvViolationType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Violation Detected: --"
+                android:textColor="#FF5252"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Control Buttons -->
+    <LinearLayout
+        android:id="@+id/layoutButtons"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnDiscard"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="DISCARD"
+            android:textColor="#FFFFFF"
+            android:fontFamily="sans-serif-black"
+            app:backgroundTint="#444444"/>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_marginStart="8dp"
+            android:text="SUBMIT TO ADMIN"
+            android:textColor="#000000"
+            android:fontFamily="sans-serif-black"
+            app:backgroundTint="#00E676"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
